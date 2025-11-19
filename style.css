@@ -1,0 +1,757 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #e0f2fe 0%, #f3e8ff 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.header {
+    background: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: clamp(0.75rem, 2vw, 1rem) clamp(1rem, 4vw, 2rem);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.logo-icon {
+    width: clamp(24px, 5vw, 32px);
+    height: clamp(24px, 5vw, 32px);
+    color: #9333ea;
+    flex-shrink: 0;
+}
+
+.logo h1 {
+    font-size: clamp(1.125rem, 3vw, 1.5rem);
+    color: #1f2937;
+}
+
+.btn {
+    padding: clamp(0.75rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2rem);
+    border-radius: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+    font-size: clamp(1rem, 2.5vw, 1.125rem);
+    white-space: nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.btn-large {
+    padding: clamp(1rem, 2.5vw, 1.25rem) clamp(2rem, 5vw, 2.5rem);
+    font-size: clamp(1.125rem, 2.75vw, 1.25rem);
+    border-radius: 0.875rem;
+    max-width: 100%;
+}
+
+.btn-full {
+    width: 100%;
+    display: block;
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.btn-primary {
+    background: #9333ea;
+    color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+    background: #7e22ce;
+}
+
+.btn-outline {
+    background: white;
+    color: #9333ea;
+    border: 2px solid #9333ea;
+}
+
+.btn-outline:hover:not(:disabled) {
+    background: #faf5ff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: clamp(1rem, 3vw, 2rem);
+    width: 100%;
+}
+
+.hero {
+    text-align: center;
+    padding: clamp(2rem, 6vw, 4rem) clamp(1rem, 4vw, 2rem);
+}
+
+.hero h2 {
+    font-size: clamp(1.75rem, 5vw, 3rem);
+    color: #1f2937;
+    margin-bottom: clamp(1rem, 2vw, 1.5rem);
+    line-height: 1.2;
+}
+
+.hero p {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: #6b7280;
+    margin-bottom: clamp(1.5rem, 3vw, 2rem);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: clamp(0.75rem, 2vw, 1.5rem);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: clamp(1rem, 3vw, 2rem);
+    margin-top: clamp(2rem, 5vw, 4rem);
+}
+
+.feature-card {
+    background: white;
+    padding: clamp(1.5rem, 3vw, 2rem);
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: all 0.3s;
+}
+
+.feature-card:hover {
+    box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+    transform: translateY(-2px);
+}
+
+.feature-icon {
+    width: clamp(40px, 8vw, 48px);
+    height: clamp(40px, 8vw, 48px);
+    color: #9333ea;
+    margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+    font-size: clamp(1.125rem, 2.5vw, 1.25rem);
+    margin-bottom: 0.75rem;
+    color: #1f2937;
+}
+
+.feature-card p {
+    color: #6b7280;
+    line-height: 1.6;
+    font-size: clamp(0.875rem, 2vw, 1rem);
+}
+
+.caregiver-card {
+    background: white;
+    border-radius: 1rem;
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: all 0.3s;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.caregiver-card:hover {
+    box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+    transform: translateY(-2px);
+}
+
+.caregiver-card > * {
+    min-width: 0;
+}
+
+/* Large caregiver profile view */
+.caregiver-profile-large {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: clamp(2rem, 4vw, 3rem);
+    overflow-x: hidden;
+}
+
+.caregiver-profile-large .avatar {
+    width: clamp(80px, 15vw, 120px);
+    height: clamp(80px, 15vw, 120px);
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.caregiver-profile-large h2,
+.caregiver-profile-large h3 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin-bottom: 1rem;
+    word-wrap: break-word;
+}
+
+.caregiver-profile-large p,
+.caregiver-profile-large .form-group {
+    font-size: clamp(1rem, 2.5vw, 1.125rem);
+}
+
+.caregiver-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 1rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.caregiver-info {
+    display: flex;
+    gap: clamp(0.75rem, 2vw, 1rem);
+    flex: 1;
+    min-width: 0;
+}
+
+.avatar {
+    width: clamp(48px, 10vw, 64px);
+    height: clamp(48px, 10vw, 64px);
+    border-radius: 50%;
+    background: #9333ea;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    flex-shrink: 0;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #eab308;
+    font-weight: 600;
+    font-size: clamp(0.875rem, 2vw, 1rem);
+    flex-shrink: 0;
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: clamp(0.75rem, 1.8vw, 0.875rem);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.badge-specialty {
+    background: #f3e8ff;
+    color: #7e22ce;
+}
+
+.badge-available {
+    background: #dcfce7;
+    color: #16a34a;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: clamp(1rem, 3vw, 2rem);
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: white;
+    padding: clamp(2rem, 4vw, 3rem);
+    border-radius: 1rem;
+    max-width: 700px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Large centered forms for booking and profile pages */
+.modal-content.modal-large {
+    max-width: 900px;
+    padding: clamp(2.5rem, 5vw, 4rem);
+}
+
+.modal-content.modal-xlarge {
+    max-width: 1000px;
+    padding: clamp(2.5rem, 5vw, 4rem);
+}
+
+/* Button containers to prevent overflow */
+.modal-buttons,
+.form-buttons {
+    display: flex;
+    gap: clamp(0.75rem, 2vw, 1rem);
+    flex-wrap: wrap;
+    margin-top: clamp(1.5rem, 3vw, 2rem);
+}
+
+.modal-buttons > *,
+.form-buttons > * {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.modal-buttons.buttons-stack,
+.form-buttons.buttons-stack {
+    flex-direction: column;
+}
+
+.modal-buttons.buttons-stack > *,
+.form-buttons.buttons-stack > * {
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: clamp(1.25rem, 3vw, 2rem);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+    color: #374151;
+    font-size: clamp(1rem, 2.5vw, 1.125rem);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: clamp(0.875rem, 2vw, 1.125rem);
+    border: 2px solid #d1d5db;
+    border-radius: 0.75rem;
+    font-size: clamp(1rem, 2.5vw, 1.125rem);
+    font-family: inherit;
+    transition: all 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #9333ea;
+    box-shadow: 0 0 0 4px rgba(147, 51, 234, 0.1);
+}
+
+.grid {
+    display: grid;
+    gap: clamp(1rem, 2.5vw, 1.5rem);
+    width: 100%;
+}
+
+.grid-2 {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+}
+
+.grid-3 {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+}
+
+/* Ensure grid items don't overflow */
+.grid > * {
+    min-width: 0;
+    overflow-wrap: break-word;
+}
+
+.chat-container {
+    height: clamp(300px, 50vh, 400px);
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: clamp(0.75rem, 2vw, 1rem);
+    background: #f9fafb;
+}
+
+.chat-message {
+    margin-bottom: clamp(0.75rem, 2vw, 1rem);
+    display: flex;
+}
+
+.chat-message.user {
+    justify-content: flex-end;
+}
+
+.chat-bubble {
+    max-width: min(70%, 400px);
+    padding: clamp(0.625rem, 1.5vw, 0.75rem) clamp(0.75rem, 2vw, 1rem);
+    border-radius: 1rem;
+    word-wrap: break-word;
+    font-size: clamp(0.875rem, 2vw, 1rem);
+}
+
+.chat-message.user .chat-bubble {
+    background: #9333ea;
+    color: white;
+}
+
+.chat-message.caregiver .chat-bubble {
+    background: #e5e7eb;
+    color: #1f2937;
+}
+
+.chat-time {
+    font-size: clamp(0.625rem, 1.5vw, 0.75rem);
+    margin-top: 0.25rem;
+    opacity: 0.7;
+}
+
+.chat-input-container {
+    display: flex;
+    gap: 0.5rem;
+    padding: clamp(0.75rem, 2vw, 1rem);
+    border-top: 1px solid #e5e7eb;
+    background: white;
+}
+
+.chat-input {
+    flex: 1;
+    padding: clamp(0.625rem, 1.5vw, 0.75rem);
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    font-size: clamp(0.875rem, 2vw, 1rem);
+    min-width: 0;
+}
+
+.chat-input:focus {
+    outline: none;
+    border-color: #9333ea;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.page {
+    min-height: calc(100vh - 80px);
+}
+
+/* Centered page content for forms and profiles */
+.page-centered {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(2rem, 4vw, 3rem);
+}
+
+.page-content-large {
+    background: white;
+    border-radius: 1.5rem;
+    padding: clamp(2.5rem, 5vw, 4rem);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    max-width: 900px;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.page-content-xlarge {
+    background: white;
+    border-radius: 1.5rem;
+    padding: clamp(2.5rem, 5vw, 4rem);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    max-width: 1000px;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* Large headings for important pages */
+.page-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    color: #1f2937;
+    margin-bottom: clamp(1.5rem, 3vw, 2rem);
+    text-align: center;
+    font-weight: 700;
+}
+
+.page-subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: #6b7280;
+    text-align: center;
+    margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.success-icon {
+    width: clamp(60px, 12vw, 80px);
+    height: clamp(60px, 12vw, 80px);
+    background: #dcfce7;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto clamp(1rem, 2vw, 1.5rem);
+    color: #16a34a;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.price-summary {
+    background: #f9fafb;
+    padding: clamp(1rem, 2.5vw, 1.5rem);
+    border-radius: 0.5rem;
+    border: 1px solid #e5e7eb;
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: clamp(0.5rem, 1.5vw, 0.75rem);
+    font-size: clamp(0.875rem, 2vw, 1rem);
+    gap: 1rem;
+}
+
+.price-total {
+    border-top: 2px solid #e5e7eb;
+    padding-top: clamp(0.5rem, 1.5vw, 0.75rem);
+    margin-top: clamp(0.5rem, 1.5vw, 0.75rem);
+}
+
+.price-total .price-row {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    font-weight: bold;
+}
+
+/* Star Rating Styles */
+.star-btn {
+    cursor: pointer;
+    opacity: 0.3;
+    transition: opacity 0.2s;
+    user-select: none;
+}
+
+.star-btn:hover {
+    opacity: 0.8;
+}
+
+.star-btn.active {
+    opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header {
+        justify-content: center;
+    }
+
+    .caregiver-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .rating {
+        justify-content: flex-start;
+    }
+
+    .page-content-large,
+    .page-content-xlarge {
+        padding: clamp(1.5rem, 4vw, 2rem);
+    }
+
+    .modal-content.modal-large,
+    .modal-content.modal-xlarge {
+        max-width: 95%;
+        padding: clamp(1.5rem, 4vw, 2rem);
+    }
+
+    .modal-buttons,
+    .form-buttons {
+        flex-direction: column;
+    }
+
+    .modal-buttons > *,
+    .form-buttons > * {
+        width: 100%;
+    }
+
+    .btn {
+        white-space: normal;
+        word-wrap: break-word;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+        white-space: normal;
+    }
+
+    .chat-bubble {
+        max-width: 85%;
+    }
+
+    .modal-content {
+        max-height: 85vh;
+        padding: 1.5rem;
+    }
+
+    .page-centered {
+        padding: 1rem;
+    }
+
+    .page-content-large,
+    .page-content-xlarge {
+        padding: 1.5rem;
+        border-radius: 1rem;
+    }
+
+    .btn-large {
+        width: 100%;
+        white-space: normal;
+    }
+
+    .modal-buttons,
+    .form-buttons {
+        gap: 0.75rem;
+    }
+
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Ensure content doesn't overflow on very small screens */
+@media (max-width: 320px) {
+    .container {
+        padding: 0.75rem;
+    }
+
+    .hero {
+        padding: 1.5rem 0.75rem;
+    }
+}
+
+/* Print styles */
+@media print {
+    .header,
+    .hero-buttons,
+    .btn {
+        display: none;
+    }
+
+    body {
+        background: white;
+    }
+
+    .feature-card,
+    .caregiver-card {
+        box-shadow: none;
+        border: 1px solid #e5e7eb;
+    }
+}
+
+/* — General Button — */
+.btn {
+    padding: clamp(0.75rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2rem);
+    border-radius: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    border: none;
+    font-size: clamp(1rem, 2.5vw, 1.125rem);
+
+    /* ⭐⭐ Core behavior: text is NEVER cut off ⭐⭐ */
+    white-space: normal;        /* Allow wrapping */
+    word-wrap: break-word;      /* Break long words if needed */
+    overflow: visible;          /* Do not hide text */
+    text-overflow: unset;       /* Remove "..." truncation */
+
+    display: inline-flex;       /* Make button resize naturally */
+    justify-content: center;
+    align-items: center;
+
+    line-height: 1.3;
+    min-width: 80px;            /* Prevent overly narrow buttons */
+    max-width: 100%;            /* Adapt to container width */
+}
+
+/* — Large Button — */
+.btn-large {
+    padding: clamp(1rem, 2.5vw, 1.25rem) clamp(2rem, 5vw, 2.5rem);
+    font-size: clamp(1.125rem, 2.75vw, 1.25rem);
+    border-radius: 0.875rem;
+
+    /* Keep wrapping behavior */
+    white-space: normal;
+}
+
+/* — Full-width Button — */
+.btn-full {
+    width: 100%;
+}
+
+/* — Primary Button (Purple) — */
+.btn-primary {
+    background: #9333ea;
+    color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+    background: #7e22ce;
+}
+
+/* — Outline Button — */
+.btn-outline {
+    background: white;
+    color: #9333ea;
+    border: 2px solid #9333ea;
+}
+
+.btn-outline:hover:not(:disabled) {
+    background: #faf5ff;
+}
+
+/* — Disabled Button — */
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
